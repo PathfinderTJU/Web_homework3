@@ -1,0 +1,73 @@
+.choose_outside_block {
+    background-color: white;
+    border-radius: .25em;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.08);
+    min-height: 1000px;
+    padding: 30px 50px;
+}
+
+#now_course_schedule_title,
+#availiable_course_title {
+    font-size: 26px;
+    color: #00478a;
+    margin-bottom: 20px;
+}
+
+#now_course_schedule {
+    margin-bottom: 50px;
+}
+
+#choose_submit_button {
+    margin-bottom: 20px;
+    width: 100px;
+    height: 30px;
+    background-color: #006ff2;
+    border-color: #006ff2;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+}
+
+#choose_submit_tip {
+    margin-left: 10px;
+    color: red;
+    font-size: 16px;
+}
+
+#availiable_course {
+    width: 100%;
+    text-align: center;
+    vertical-align: center;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background-color: #eeeeee;
+    margin-bottom: 50px;
+}
+
+#availiable_course td {
+    width: 14.28%;
+    height: 30px;
+    overflow: hidden;
+    word-wrap: break-word;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #FFFFFF;
+    padding: 10px;
+}
+
+.choose_course_button,
+.cancel_course_button {
+    width: 40%;
+    background-color: #006ff2;
+    border-color: #006ff2;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    margin-right: 5px;
+}

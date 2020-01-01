@@ -1,0 +1,146 @@
+ .home_block {
+     display: flex;
+     justify-content: space-between;
+     flex-wrap: wrap;
+ }
+ 
+ .home_welcome_block {
+     width: 100%;
+     background-color: white;
+     border-radius: .25em;
+     box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.08);
+     height: 150px;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 0 50px;
+ }
+ 
+ .home_welcome_word {
+     font-size: 20px;
+     line-height: 50px;
+ }
+ 
+ .home_welcome_week {
+     display: flex;
+     align-items: center;
+ }
+ 
+ .week_img_bg {
+     width: 50px;
+     height: 50px;
+     border-radius: 25px;
+     background-color: #f0b824;
+ }
+ 
+ #week_icon {
+     position: relative;
+     font-size: 25px;
+     color: rgb(255, 255, 255);
+     top: 23%;
+     left: 26%;
+ }
+ 
+ .week_time_block {
+     margin-left: 20px;
+ }
+ 
+ .week_time {
+     font-weight: bold;
+ }
+ 
+ #now_week {
+     font-size: 30px;
+ }
+ 
+ #total_week {
+     font-size: 20px;
+ }
+ 
+ .home_edit_password_block,
+ .home_edit_notice_block {
+     margin-top: 40px;
+     width: 48%;
+     height: 400px;
+     background-color: white;
+     border-radius: .25em;
+     box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.08);
+     padding: 40px;
+ }
+ 
+ #home_edit_password_title,
+ #home_edit_notice_title {
+     font-size: 22px;
+     color: #00478a;
+     vertical-align: middle;
+ }
+ 
+ #edit_notice {
+     margin-top: 15px;
+     padding: 2px;
+     height: 72%;
+     font-size: 16px;
+     text-indent: 2em;
+     line-height: 30px;
+     overflow-y: auto;
+     outline: dotted;
+     outline-width: 1px;
+     outline-color: rgb(184, 184, 184);
+ }
+ 
+ #edit_notice_submit {
+     margin-top: 20px;
+ }
+ 
+ button:hover {
+     cursor: pointer;
+ }
+ 
+ #edit_notice_err,
+ #edit_pass_err {
+     margin-left: 5px;
+     color: red;
+ }
+ 
+ .edit_password_block {
+     width: 100%;
+     display: flex;
+     flex-wrap: wrap;
+     align-items: flex-start;
+ }
+ 
+ #edit_password {
+     width: 100%;
+ }
+ 
+ #home_edit_password_title {
+     margin-bottom: 20px;
+ }
+ 
+ #edit_password div:not(.container, .shape) {
+     margin-top: 10px;
+     margin-bottom: 2px;
+ }
+ 
+ #edit_password input {
+     width: 100%;
+     text-indent: 10px;
+     height: 38px;
+     border: 1px solid #d8d8d8;
+     border-radius: 4px;
+     margin-bottom: 20px;
+ }
+ 
+ button {
+     width: 30%;
+     height: 38px;
+     background-color: #00478a;
+     border-color: #00478a;
+     color: #fff;
+     font-size: 16px;
+     text-align: center;
+     border-radius: 8px;
+     outline: none;
+     border: none;
+     float: left;
+ }

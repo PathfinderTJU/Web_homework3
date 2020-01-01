@@ -1,0 +1,188 @@
+.profile_block {
+    min-height: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    flex-wrap: wrap;
+}
+
+.my_profile_block,
+.edit_password_block,
+.course_schedule_block {
+    background-color: white;
+    border-radius: .25em;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.08);
+    height: 400px;
+    padding: 30px 50px;
+}
+
+.my_profile_block {
+    width: 67%;
+}
+
+#my_profile_title,
+#edit_password_title,
+#course_schedule_title {
+    font-size: 26px;
+    color: #00478a;
+}
+
+.profile_table {
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+    vertical-align: center;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background-color: #eeeeee;
+}
+
+.profile_table_title {
+    background-color: #f5eddb;
+    color: #00478a;
+}
+
+.profile_table td {
+    width: 25%;
+    height: 40px;
+    overflow: hidden;
+    word-wrap: break-word;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #FFFFFF;
+    padding: 10px;
+}
+
+.edit_password_block {
+    width: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+#edit_password_title {
+    margin-bottom: 20px;
+}
+
+#edit_password div:not(.container, .shape) {
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+#edit_password input {
+    width: 100%;
+    text-indent: 10px;
+    height: 38px;
+    border: 1px solid #d8d8d8;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+#edit_password_submit {
+    width: 60%;
+    height: 38px;
+    background-color: #00478a;
+    border-color: #00478a;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    float: left;
+}
+
+#edit_password_submit:hover {
+    cursor: pointer;
+}
+
+#edit_pass_err {
+    margin-left: 130px;
+    margin-top: 5px;
+    font-size: 12px;
+    color: red;
+}
+
+.course_schedule_block {
+    margin-top: 40px;
+    width: 100%;
+    min-height: 800px;
+}
+
+#course_schedule_title {
+    margin-bottom: 40px;
+}
+
+#course_schedule,
+#now_course_schedule {
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+    border: solid;
+    border-width: 1px;
+    border-color: #e8eef9;
+    vertical-align: middle;
+    table-layout: fixed;
+}
+
+#course_schedule thead,
+#now_course_schedule thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+#course_schedule td,
+#now_course_schedule td {
+    border-color: #e8eef9;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+#course_schedule thead th,
+#now_course_schedule thead th,
+#availiable_course thead th {
+    background-color: #DEEDF7;
+    height: 10px;
+    width: 80px;
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: -internal-center;
+}
+
+#course_schedule tbody,
+#now_course_schedule tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.course_time {
+    font-size: 15px;
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+.course_time_morning {
+    background-color: #EEFF00;
+}
+
+.course_time_afternoon {
+    background-color: #33BB00;
+}
+
+.course_time_evening {
+    background-color: pink;
+}
+
+.course {
+    background-color: rgb(148, 174, 243);
+    font-size: 14px;
+}
+
+.no_course {
+    backGround-Color: #ffffff;
+}

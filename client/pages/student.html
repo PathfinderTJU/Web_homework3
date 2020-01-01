@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>教育教学信息管理系统（学生端）</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="../stylesheets/student.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="../scripts/echarts.min.js"></script>
+    <script type="text/javascript" src="../scripts/jquery-3.4.0.min.js"></script>
+</head>
+
+<body>
+    <div class="outside_block">
+        <div class="top_block">
+            <img src="../figures/logo_blue.png">
+            <div class="title">教育教学信息管理系统（学生端）</div>
+            <div class="name_block">
+                欢迎您，
+                <span class="name"></span>(
+                <span id="sid"></span>)
+            </div>
+            <div class="quit">退出登录</div>
+        </div>
+
+        <div class="main_block">
+            <div class="side_block">
+                <div id="to_home"><span class="iconfont">&#xe60f;&nbsp;&nbsp;&nbsp;</span>系统首页</div>
+                <div id="to_profile"><span class="iconfont">&#xe601;&nbsp;&nbsp;&nbsp;</span>个人信息</div>
+                <div id="to_score"><span class="iconfont">&#xe612;&nbsp;&nbsp;&nbsp;</span>成绩查询</div>
+                <div id="to_choose"><span class="iconfont">&#xe60d;&nbsp;&nbsp;&nbsp;</span>学生选课</div>
+            </div>
+
+            <div class="home_block">
+                <div class="home_welcome_block">
+                    <div class="home_welcome_word">
+                        <div class="welcome_time">
+                            <span id="time"></span>
+                            <span class="name"></span>
+                        </div>
+                        <div class="welcome_days">
+                            <span>今天是你入学的第</span>
+                            <span id="days"></span>
+                            <span>天，今天也请继续努力喔！</span>
+                        </div>
+                    </div>
+                    <div class="home_welcome_week">
+                        <div class="week_img_bg">
+                            <span class="iconfont" id="week_icon">&#xe650;</span>
+                        </div>
+                        <div class="week_time_block">
+                            <div class="week_time">
+                                <span id="now_week"></span>
+                            </div>
+                            <div class="week_tip">当前教学周</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="home_course_block">
+                    <div id="home_course_title">
+                        今日课程
+                        <span id="today_time"></span>
+                    </div>
+                </div>
+
+                <div class="home_notice_block">
+                    <div id="home_notice_title">
+                        教务通知
+                    </div>
+                    <div id="notice_content">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="score_block">
+                <div class="choose_term_block">
+                    <div id="choose_term_title">选择学期：</div>
+                    <div id="term_button_block">
+                    </div>
+                </div>
+                <div class="all_term_block">
+                    <div id="all_term_title">成绩概览</div>
+                    <div id="all_score_chart"></div>
+                </div>
+                <div class="term_score_block">
+                    <div id="term_score_title">当前成绩</div>
+                    <table id="term_score">
+                        <thead>
+                            <tr>
+                                <th>课程代码</th>
+                                <th>课程名称</th>
+                                <th>教师</th>
+                                <th>学分</th>
+                                <th>成绩</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div id="term_score_chart"></div>
+                </div>
+            </div>
+
+            <div class="choose_block">
+                <div class="choose_outside_block">
+                    <div id="availiable_course_title">选择你的课程</div>
+                    <form id="confirm_choose">
+                        <button type="submit" id="choose_submit_button">提交选择</button>
+                        <span id="choose_submit_tip"></span>
+                    </form>
+                    <table id="availiable_course">
+                        <thead>
+                            <tr>
+                                <th>课程代码</th>
+                                <th>课程名称</th>
+                                <th>教师</th>
+                                <th>学分</th>
+                                <th>上课地点</th>
+                                <th>时间</th>
+                                <th>选择</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="now_course_schedule_title">当前课程表</div>
+                    <table id="now_course_schedule">
+                        <thead>
+                            <tr>
+                                <th>时间</th>
+                                <th>星期一</th>
+                                <th>星期二</th>
+                                <th>星期三</th>
+                                <th>星期四</th>
+                                <th>星期五</th>
+                                <th>星期六</th>
+                                <th>星期日</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="course_time course_time_morning">
+                                    <div>第一节</div>
+                                    <div>08:30-09:15</div>
+                                </td>
+                                <td class="no_course" id="now_course_1_1"></td>
+                                <td class="no_course" id="now_course_2_1"></td>
+                                <td class="no_course" id="now_course_3_1"></td>
+                                <td class="no_course" id="now_course_4_1"></td>
+                                <td class="no_course" id="now_course_5_1"></td>
+                                <td class="no_course" id="now_course_6_1"></td>
+                                <td class="no_course" id="now_course_7_1"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_morning">
+                                    <div>第二节</div>
+                                    <div>09:20-10:05</div>
+                                </td>
+                                <td class="no_course" id="now_course_1_2"></td>
+                                <td class="no_course" id="now_course_2_2"></td>
+                                <td class="no_course" id="now_course_3_2"></td>
+                                <td class="no_course" id="now_course_4_2"></td>
+                                <td class="no_course" id="now_course_5_2"></td>
+                                <td class="no_course" id="now_course_6_2"></td>
+                                <td class="no_course" id="now_course_7_2"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_morning">
+                                    <div>第三节</div>
+                                    <div>10:25-11:10</div>
+                                </td>
+                                <td class="no_course" id="now_course_1_3"></td>
+                                <td class="no_course" id="now_course_2_3"></td>
+                                <td class="no_course" id="now_course_3_3"></td>
+                                <td class="no_course" id="now_course_4_3"></td>
+                                <td class="no_course" id="now_course_5_3"></td>
+                                <td class="no_course" id="now_course_6_3"></td>
+                                <td class="no_course" id="now_course_7_3"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_morning">
+                                    <div>第四节</div>
+                                    <div>11:15-12:00</div>
+                                </td>
+                                <td class="no_course" id="now_course_1_4"></td>
+                                <td class="no_course" id="now_course_2_4"></td>
+                                <td class="no_course" id="now_course_3_4"></td>
+                                <td class="no_course" id="now_course_4_4"></td>
+                                <td class="no_course" id="now_course_5_4"></td>
+                                <td class="no_course" id="now_course_6_4"></td>
+                                <td class="no_course" id="now_course_7_4"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_afternoon">
+                                    <div>第五节</div>
+                                    <div>13:30-14:15</div>
+                                </td>
+                                <td class="no_course" id="now_course_1_5"></td>
+                                <td class="no_course" id="now_course_2_5"></td>
+                                <td class="no_course" id="now_course_3_5"></td>
+                                <td class="no_course" id="now_course_4_5"></td>
+                                <td class="no_course" id="now_course_5_5"></td>
+                                <td class="no_course" id="now_course_6_5"></td>
+                                <td class="no_course" id="now_course_7_5"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_afternoon">
+                                    <div>第六节</div>
+                                    <div>14:20-15:05</div>
+                                </td>
+                                <td class="no_course" id="now_course_1_6"></td>
+                                <td class="no_course" id="now_course_2_6"></td>
+                                <td class="no_course" id="now_course_3_6"></td>
+                                <td class="no_course" id="now_course_4_6"></td>
+                                <td class="no_course" id="now_course_5_6"></td>
+                                <td class="no_course" id="now_course_6_6"></td>
+                                <td class="no_course" id="now_course_7_6"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_afternoon">
+                                    <div>第七节</div>
+                                    <div>15:25-16:10</div>
+                                </td>
+                                <td class="no_course" id="now_course_1_7"></td>
+                                <td class="no_course" id="now_course_2_7"></td>
+                                <td class="no_course" id="now_course_3_7"></td>
+                                <td class="no_course" id="now_course_4_7"></td>
+                                <td class="no_course" id="now_course_5_7"></td>
+                                <td class="no_course" id="now_course_6_7"></td>
+                                <td class="no_course" id="now_course_7_7"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_afternoon">
+                                    <div>第八节</div>
+                                    <div>16:15-17:00</div>
+                                </td>
+                                <td class="no_course" id="now_course_1_8"></td>
+                                <td class="no_course" id="now_course_2_8"></td>
+                                <td class="no_course" id="now_course_3_8"></td>
+                                <td class="no_course" id="now_course_4_8"></td>
+                                <td class="no_course" id="now_course_5_8"></td>
+                                <td class="no_course" id="now_course_6_8"></td>
+                                <td class="no_course" id="now_course_7_8"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_evening">
+                                    <div>第九节</div>
+                                    <div>18:30-19:15</div>
+                                </td>
+                                <td class="no_course" id="now_course_1_9"></td>
+                                <td class="no_course" id="now_course_2_9"></td>
+                                <td class="no_course" id="now_course_3_9"></td>
+                                <td class="no_course" id="now_course_4_9"></td>
+                                <td class="no_course" id="now_course_5_9"></td>
+                                <td class="no_course" id="now_course_6_9"></td>
+                                <td class="no_course" id="now_course_7_9"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_evening">
+                                    <div>第十节</div>
+                                    <div>19:20-20:05</div>
+                                </td>
+                                <td class="no_course" id="now_course_1_10"></td>
+                                <td class="no_course" id="now_course_2_10"></td>
+                                <td class="no_course" id="now_course_3_10"></td>
+                                <td class="no_course" id="now_course_4_10"></td>
+                                <td class="no_course" id="now_course_5_10"></td>
+                                <td class="no_course" id="now_course_6_10"></td>
+                                <td class="no_course" id="now_course_7_10"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_evening">
+                                    <div>第十一节</div>
+                                    <div>20:10-20:55</div>
+                                </td>
+                                <td class="no_course" id="now_course_1_11"></td>
+                                <td class="no_course" id="now_course_2_11"></td>
+                                <td class="no_course" id="now_course_3_11"></td>
+                                <td class="no_course" id="now_course_4_11"></td>
+                                <td class="no_course" id="now_course_5_11"></td>
+                                <td class="no_course" id="now_course_6_11"></td>
+                                <td class="no_course" id="now_course_7_11"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_evening">
+                                    <div>第十二节</div>
+                                    <div>21:00-21:45</div>
+                                </td>
+                                <td class="no_course" id="now_course_1_12"></td>
+                                <td class="no_course" id="now_course_2_12"></td>
+                                <td class="no_course" id="now_course_3_12"></td>
+                                <td class="no_course" id="now_course_4_12"></td>
+                                <td class="no_course" id="now_course_5_12"></td>
+                                <td class="no_course" id="now_course_6_12"></td>
+                                <td class="no_course" id="now_course_7_12"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="profile_block">
+                <div class="my_profile_block">
+                    <div id="my_profile_title">学籍信息</div>
+                    <table class="profile_table">
+                        <tbody>
+                            <tr>
+                                <td class="profile_table_title">学号</td>
+                                <td class="profile_table_content" id="profile_sid"></td>
+                                <td class="profile_table_title">姓名</td>
+                                <td class="profile_table_content" id="profile_sname"></td>
+                            </tr>
+                            <tr>
+                                <td class="profile_table_title">性别</td>
+                                <td class="profile_table_content" id="profile_gender"></td>
+                                <td class="profile_table_title">年龄</td>
+                                <td class="profile_table_content" id="profile_age"></td>
+                            </tr>
+                            <tr>
+                                <td class="profile_table_title">籍贯</td>
+                                <td class="profile_table_content" id="profile_home"></td>
+                                <td class="profile_table_title">年级</td>
+                                <td class="profile_table_content" id="profile_grade"></td>
+                            </tr>
+                            <tr>
+                                <td class="profile_table_title">学院</td>
+                                <td class="profile_table_content" id="profile_school"></td>
+                                <td class="profile_table_title">班级</td>
+                                <td class="profile_table_content" id="profile_class"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="edit_password_block">
+                    <div id="edit_password_title">修改密码</div>
+                    <form id="edit_password">
+                        <div id="old_pass_tip">旧密码</div>
+                        <input id="old_pass_input" type="password">
+                        <div id="new_pass_tip">新密码</div>
+                        <input id="new_pass_input" type="password">
+                        <div id="new_pass_again_tip">确认密码</div>
+                        <input id="new_pass_again_input" type="password">
+                        <button id="edit_password_submit" type="submit">修改密码</button>
+                        <div class="err" id="edit_pass_err"></div>
+                    </form>
+                </div>
+                <div class="course_schedule_block">
+                    <div id="course_schedule_title">课程表(若重新选课，请刷新页面)</div>
+                    <table id="course_schedule">
+                        <thead>
+                            <tr>
+                                <th>时间</th>
+                                <th>星期一</th>
+                                <th>星期二</th>
+                                <th>星期三</th>
+                                <th>星期四</th>
+                                <th>星期五</th>
+                                <th>星期六</th>
+                                <th>星期日</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="course_time course_time_morning">
+                                    <div>第一节</div>
+                                    <div>08:30-09:15</div>
+                                </td>
+                                <td class="no_course" id="course_1_1"></td>
+                                <td class="no_course" id="course_2_1"></td>
+                                <td class="no_course" id="course_3_1"></td>
+                                <td class="no_course" id="course_4_1"></td>
+                                <td class="no_course" id="course_5_1"></td>
+                                <td class="no_course" id="course_6_1"></td>
+                                <td class="no_course" id="course_0_1"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_morning">
+                                    <div>第二节</div>
+                                    <div>09:20-10:05</div>
+                                </td>
+                                <td class="no_course" id="course_1_2"></td>
+                                <td class="no_course" id="course_2_2"></td>
+                                <td class="no_course" id="course_3_2"></td>
+                                <td class="no_course" id="course_4_2"></td>
+                                <td class="no_course" id="course_5_2"></td>
+                                <td class="no_course" id="course_6_2"></td>
+                                <td class="no_course" id="course_0_2"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_morning">
+                                    <div>第三节</div>
+                                    <div>10:25-11:10</div>
+                                </td>
+                                <td class="no_course" id="course_1_3"></td>
+                                <td class="no_course" id="course_2_3"></td>
+                                <td class="no_course" id="course_3_3"></td>
+                                <td class="no_course" id="course_4_3"></td>
+                                <td class="no_course" id="course_5_3"></td>
+                                <td class="no_course" id="course_6_3"></td>
+                                <td class="no_course" id="course_0_3"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_morning">
+                                    <div>第四节</div>
+                                    <div>11:15-12:00</div>
+                                </td>
+                                <td class="no_course" id="course_1_4"></td>
+                                <td class="no_course" id="course_2_4"></td>
+                                <td class="no_course" id="course_3_4"></td>
+                                <td class="no_course" id="course_4_4"></td>
+                                <td class="no_course" id="course_5_4"></td>
+                                <td class="no_course" id="course_6_4"></td>
+                                <td class="no_course" id="course_0_4"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_afternoon">
+                                    <div>第五节</div>
+                                    <div>13:30-14:15</div>
+                                </td>
+                                <td class="no_course" id="course_1_5"></td>
+                                <td class="no_course" id="course_2_5"></td>
+                                <td class="no_course" id="course_3_5"></td>
+                                <td class="no_course" id="course_4_5"></td>
+                                <td class="no_course" id="course_5_5"></td>
+                                <td class="no_course" id="course_6_5"></td>
+                                <td class="no_course" id="course_0_5"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_afternoon">
+                                    <div>第六节</div>
+                                    <div>14:20-15:05</div>
+                                </td>
+                                <td class="no_course" id="course_1_6"></td>
+                                <td class="no_course" id="course_2_6"></td>
+                                <td class="no_course" id="course_3_6"></td>
+                                <td class="no_course" id="course_4_6"></td>
+                                <td class="no_course" id="course_5_6"></td>
+                                <td class="no_course" id="course_6_6"></td>
+                                <td class="no_course" id="course_0_6"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_afternoon">
+                                    <div>第七节</div>
+                                    <div>15:25-16:10</div>
+                                </td>
+                                <td class="no_course" id="course_1_7"></td>
+                                <td class="no_course" id="course_2_7"></td>
+                                <td class="no_course" id="course_3_7"></td>
+                                <td class="no_course" id="course_4_7"></td>
+                                <td class="no_course" id="course_5_7"></td>
+                                <td class="no_course" id="course_6_7"></td>
+                                <td class="no_course" id="course_0_7"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_afternoon">
+                                    <div>第八节</div>
+                                    <div>16:15-17:00</div>
+                                </td>
+                                <td class="no_course" id="course_1_8"></td>
+                                <td class="no_course" id="course_2_8"></td>
+                                <td class="no_course" id="course_3_8"></td>
+                                <td class="no_course" id="course_4_8"></td>
+                                <td class="no_course" id="course_5_8"></td>
+                                <td class="no_course" id="course_6_8"></td>
+                                <td class="no_course" id="course_0_8"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_evening">
+                                    <div>第九节</div>
+                                    <div>18:30-19:15</div>
+                                </td>
+                                <td class="no_course" id="course_1_9"></td>
+                                <td class="no_course" id="course_2_9"></td>
+                                <td class="no_course" id="course_3_9"></td>
+                                <td class="no_course" id="course_4_9"></td>
+                                <td class="no_course" id="course_5_9"></td>
+                                <td class="no_course" id="course_6_9"></td>
+                                <td class="no_course" id="course_0_9"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_evening">
+                                    <div>第十节</div>
+                                    <div>19:20-20:05</div>
+                                </td>
+                                <td class="no_course" id="course_1_10"></td>
+                                <td class="no_course" id="course_2_10"></td>
+                                <td class="no_course" id="course_3_10"></td>
+                                <td class="no_course" id="course_4_10"></td>
+                                <td class="no_course" id="course_5_10"></td>
+                                <td class="no_course" id="course_6_10"></td>
+                                <td class="no_course" id="course_0_10"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_evening">
+                                    <div>第十一节</div>
+                                    <div>20:10-20:55</div>
+                                </td>
+                                <td class="no_course" id="course_1_11"></td>
+                                <td class="no_course" id="course_2_11"></td>
+                                <td class="no_course" id="course_3_11"></td>
+                                <td class="no_course" id="course_4_11"></td>
+                                <td class="no_course" id="course_5_11"></td>
+                                <td class="no_course" id="course_6_11"></td>
+                                <td class="no_course" id="course_0_11"></td>
+                            </tr>
+                            <tr>
+                                <td class="course_time course_time_evening">
+                                    <div>第十二节</div>
+                                    <div>21:00-21:45</div>
+                                </td>
+                                <td class="no_course" id="course_1_12"></td>
+                                <td class="no_course" id="course_2_12"></td>
+                                <td class="no_course" id="course_3_12"></td>
+                                <td class="no_course" id="course_4_12"></td>
+                                <td class="no_course" id="course_5_12"></td>
+                                <td class="no_course" id="course_6_12"></td>
+                                <td class="no_course" id="course_0_12"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="thanks_block">
+            <img src="../figures/bottom_logo.png">
+            <div class="copyright">©CopyRight 2019 Liuxingyu</div>
+            <div class="copyright">All rights reserved.</div>
+        </div>
+
+    </div>
+
+    <div id="return_top">
+        <span class="iconfont">&#xe76c;</span>
+    </div>
+    <script src="../scripts/student.js" type="text/javascript"></script>
+</body>
+
+</html

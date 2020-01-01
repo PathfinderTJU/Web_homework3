@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>天津大学教育教学信息管理系统</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="../stylesheets/login.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="../scripts/jquery-3.4.0.min.js"></script>
+</head>
+
+<body>
+    <div class="outside_block">
+        <div class="logo_block">
+            <img src="../figures/logo.png">
+        </div>
+
+        <div class="main_block">
+            <div class="title_block">
+                <div id="title">教育教学信息管理系统</div>
+                <div id="introduction">Web开发 Homework3</div>
+                <div id="name">©CopyRight 2019 Liuxingyu All rights reserved.</div>
+            </div>
+
+            <div class="login_block">
+                <form id="login_form">
+                    <div class="login_type">
+                        <span id="user_login_title">学生登录</span>
+                        <span>|</span>
+                        <span id="admin_login_title">教师登录</span>
+                    </div>
+                    <div id="username_tip">学号
+                    </div>
+                    <input type="text" id="username" name="user_input">
+                    <div id="password_tip">
+                        密码
+                        <span id="forget_password">忘记密码？</span>
+                    </div>
+                    <input type="password" id="password" name="pass_input">
+                    <button id="login_button">
+                        <div id="login_err" class="err"></div>
+                        登录
+                        <div class="container animation-2">
+                            <div class="shape shape1"></div>
+                            <div class="shape shape2"></div>
+                            <div class="shape shape3"></div>
+                            <div class="shape shape4"></div>
+                        </div>
+                    </button>
+                    <div id="login_tip">登录即表示您同意用户协议</div>
+                    <div id="regist">没有账户？点击注册</div>
+                </form>
+            </div>
+
+            <div class="regist_block">
+                <form id="regist_form">
+                    <div class="regist_title">新用户注册</div>
+                    <div id="username_tip">学号<span id="new_username_err" class='err'></span></div>
+                    <input type="text" id="new_username" name="new_user">
+
+                    <div id="password_tip">密码<span id="new_password_err" class='err'></span></div>
+                    <input type="password" id="new_password" name="new_pass">
+
+                    <button id="regist_button" type="submit">
+                        <div id="regist_err" class="err"></div>
+                        注册
+                        <div class="container animation-2">
+                            <div class="shape shape1"></div>
+                            <div class="shape shape2"></div>
+                            <div class="shape shape3"></div>
+                            <div class="shape shape4"></div>
+                        </div>
+                    </button>
+                    <div id="return">返回上层</div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../scripts/login.js"></script>
+</body>
+
+</html>

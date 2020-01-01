@@ -1,0 +1,141 @@
+.score_block {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+}
+
+.add_score_block,
+.score_stat_block {
+    width: 45%;
+    background-color: white;
+    border-radius: .25em;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.08);
+    min-height: 200px;
+    padding: 50px;
+}
+
+#add_score_title,
+#score_stat_title {
+    width: 100%;
+    font-size: 30px;
+    color: #00478a;
+    margin-bottom: 20px;
+}
+
+input {
+    height: 40px;
+    width: 51%;
+    text-indent: 10px;
+    border: 1px solid #d8d8d8;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+button {
+    width: 80px;
+    float: none;
+}
+
+#add_submit {
+    margin-left: 30px;
+    position: relative;
+    top: 1px;
+}
+
+#add_title {
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(94, 94, 94);
+}
+
+#add_score {
+    width: 100%;
+    text-align: center;
+    vertical-align: center;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background-color: #eeeeee;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    max-height: 800px;
+    overflow: auto;
+}
+
+#add_score td {
+    width: 50%;
+    height: 30px;
+    overflow: hidden;
+    word-wrap: break-word;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #FFFFFF;
+    padding: 10px;
+}
+
+#add_err {
+    color: red;
+    margin-left: 10px;
+}
+
+#stat_course,
+#stat_student,
+#add_cid_title,
+#add_year_title {
+    margin-bottom: 20px;
+}
+
+.score_stat_block button {
+    margin-left: 30px;
+}
+
+.black_overlay {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1001;
+    -moz-opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=80);
+}
+
+.white_content {
+    display: none;
+    flex-wrap: wrap;
+    position: fixed;
+    justify-content: space-around;
+    top: 20%;
+    left: 35%;
+    width: 30%;
+    min-height: 50%;
+    border-radius: 10px;
+    background-color: white;
+    z-index: 1002;
+    padding: 30px;
+}
+
+.white_content input {
+    width: 70%;
+}
+
+.white_content div {
+    width: 30%;
+}
+
+.white_content button {
+    width: 35%;
+}
+
+#add_score_submit_err {
+    margin-top: 5px;
+    color: red;
+}
+
+#score_stat_chart {
+    width: 100%;
+    height: 300px;
+}

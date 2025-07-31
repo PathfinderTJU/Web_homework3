@@ -1,6 +1,6 @@
-# Web_homework3
-Web开发大作业3——教育教学信息管理系统
+# 教育教学信息管理系统（Web开发大作业3）
 
-- MongoDB + Express + mongoose + Jquery
-
-- 数据库大作业重置版
+- 数据库选课系统的重置版，更换了技术栈。在原有学生管理、课程管理、成绩管理、选课退课等功能的基础上，增加了课程表查看、成绩统计图表等功能
+- 后端使用NodeJS+Express框架，使用MongoDB数据库
+- 前端使用原生HTML+CSS+JQuery
+- 详细内容见实验报告
